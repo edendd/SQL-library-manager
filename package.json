@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "pug": "^3.0.2",
+    "sequelize-cli": "^6.2.0"
+  }
+}
