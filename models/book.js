@@ -1,8 +1,11 @@
 const Sequelize = require("sequelize");
 
 module.exports = (sequelize) => {
-  class Book extends Sequelize.Model {}
-  Book.init({
+  const Books = sequelize.define("Books", {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
     title: {
       type: Sequelize.STRING,
       allowNull: false, // helps to prevent null values
@@ -36,9 +39,14 @@ module.exports = (sequelize) => {
     year: {
       type: Sequelize.INTEGER,
     },
-  },
-  { sequelize }
-  );
+  }, 
+  {
+timestamps: false
+  });
+
+  Books.associate = function(models) {
+    // associations can be defined here
+  }
 return Book;
 
 };
