@@ -1,0 +1,8 @@
+extends layout.pug 
+
+block content
+   h1 = "Sorry! Page Not Found"
+   h2= err.status
+   h3= err.message
+   a(href="/books/", class="button") Home
+   
