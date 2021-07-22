@@ -116,7 +116,7 @@ router.post("/books/:id/delete", asyncHandler(async (req, res) => {
   })
 );
 
-//404 HANDLER
+//404 error HANDLER
 router.use((req, res, next) => {
   const err = new Error(); //creating error object
   err.status = 404;
