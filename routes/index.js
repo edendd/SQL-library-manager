@@ -21,6 +21,7 @@ router.get('/', asyncHandler(async(req, res, next) => {
 }));
 
 router.get('/books', asyncHandler(async (req, res, next) => {
+  
   //res.render('index', { title: 'Express' });
   const books = await Book.findAll();
   res.render('index', {books, title: "Library Database"})
