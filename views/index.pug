@@ -5,11 +5,7 @@ block content
 
   p Write your book so you can remeber!
   div
-   a.button(href="/books/new") Create New Book
-  form(action="/books/search/", method="get")
-    p
-      input(type="search", name="query", placeholder="Search All Books")
-      input.searchButton(type="submit", value="Search")
+  a(href="/books/new", class="button") Create New Book
   br
 
   br
@@ -26,4 +22,3 @@ block content
           td=book.author
           td=book.genre
           td=book.year
-include pagination

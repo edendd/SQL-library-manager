@@ -21,10 +21,9 @@ router.get('/', asyncHandler(async(req, res, next) => {
 }));
 
 router.get('/books', asyncHandler(async (req, res, next) => {
-  
   //res.render('index', { title: 'Express' });
   const books = await Book.findAll();
-  res.render('index', {books, title: "Library Database"})
+  res.render('index', {books, title: "Manage Your Book"})
 }));
 
 /* SHOW ALL BOOKS (books/new) */ 
@@ -37,7 +36,7 @@ router.get(
 );
 /* CREATE NEW BOOK FORM (books/new) */ 
 router.get( "/books/new", asyncHandler(async (req, res) => {
-    res.render("new-book", { book: {}, title: "New Book" });
+    res.render("new-book", { book: {}, title: "Add New Book" });
   })
 );
 
@@ -127,12 +126,12 @@ router.use((req, res, next) => {
 //**Global Handler**/
 router.use((err, req, res, next) => {
   if (err.status === 404) {
-    err.message = "OOPS! That page doesn't exist.";
+    err.message = "That page doesn't exist.";
     console.log(err.message);
     res.status(err.status);
     return res.render("page-not-found", { err });
   } else {
-    err.message = "there is server issue!";
+    err.message = "There is server issue!";
     console.log(err.message);
     res.status(err.status);
     return res.render("error", { err });
